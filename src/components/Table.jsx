@@ -1,6 +1,9 @@
 import React, { Component } from "react";
+import data from "../MOCK_DATA.json";
+import Row from "./Row";
 
 export default class Table extends Component {
+  state = { employees: data };
   render() {
     return (
       <div>
@@ -15,13 +18,19 @@ export default class Table extends Component {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
+            {this.state.employees.map((employee) => {
+              return (
+                <Row
+                  key={employee.id}
+                  first={employee.first_name}
+                  last={employee.last_name}
+                  email={employee.email}
+                  phone={employee.phone}
+                  avatar={employee.avatar}
+                  dob={employee.dob}
+                />
+              );
+            })}
           </tbody>
         </table>
       </div>
