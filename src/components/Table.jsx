@@ -25,7 +25,7 @@ export default class Table extends Component {
         // if (a.first_name.toLowerCase() > b.first_name.toLowerCase()) {
         //   return 1;
         // }
-        return 0;
+        return 1;
       }),
     });
   };
