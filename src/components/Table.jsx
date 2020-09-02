@@ -6,12 +6,28 @@ export default class Table extends Component {
   state = { employees: data };
   search = (e) => {
     const userSearch = e.target.value;
+
     const filterSearch = data.filter(
       (employee) =>
-        employee.toLowerCase().indexOf(userSearch.toLowerCase()) !== -1
+        employee.first_name.toLowerCase().indexOf(userSearch.toLowerCase()) !==
+        -1
     );
 
     this.setState({ employees: filterSearch });
+  };
+
+  sortName = () => {
+    this.setState({
+      employees: data.sort((a, b) => {
+        if (a.first_name.toLowerCase() < b.first_name.toLowerCase()) {
+          return -1;
+        }
+        // if (a.first_name.toLowerCase() > b.first_name.toLowerCase()) {
+        //   return 1;
+        // }
+        return 0;
+      }),
+    });
   };
 
   render() {
@@ -40,7 +56,9 @@ export default class Table extends Component {
           <thead>
             <tr>
               <th scope="col">Avatar</th>
-              <th scope="col">Name</th>
+              <th scope="col" onClick={this.sortName}>
+                Name
+              </th>
               <th scope="col">Email</th>
               <th scope="col">Phone</th>
               <th scope="col">DoB</th>
