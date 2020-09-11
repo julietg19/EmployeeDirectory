@@ -1,7 +1,6 @@
 # Unit 19 React Homework: Employee Directory
 
-<img alt="demo" src="./public/demo.png"
-width="200" height="200">
+<img alt="demo" src="./public/demo.png">
 
 ## Overview
 
