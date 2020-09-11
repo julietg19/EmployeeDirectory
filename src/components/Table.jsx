@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import data from "../MOCK_DATA.json";
 import Row from "./Row";
 
+let chicken = 0;
+
 export default class Table extends Component {
   state = { employees: data };
   search = (e) => {
@@ -17,16 +19,33 @@ export default class Table extends Component {
   };
 
   sortName = () => {
-    this.setState({
-      employees: data.sort((a, b) => {
+    chicken++;
+    let nameList;
+    if (chicken % 2 === 0) {
+      nameList = data
+        .sort((a, b) => {
+          if (a.first_name.toLowerCase() < b.first_name.toLowerCase()) {
+            return -1;
+          }
+          if (a.first_name.toLowerCase() > b.first_name.toLowerCase()) {
+            return 1;
+          }
+          return 0;
+        })
+        .reverse();
+    } else {
+      nameList = data.sort((a, b) => {
         if (a.first_name.toLowerCase() < b.first_name.toLowerCase()) {
           return -1;
         }
-        // if (a.first_name.toLowerCase() > b.first_name.toLowerCase()) {
-        //   return 1;
-        // }
-        return 1;
-      }),
+        if (a.first_name.toLowerCase() > b.first_name.toLowerCase()) {
+          return 1;
+        }
+        return 0;
+      });
+    }
+    this.setState({
+      employees: nameList,
     });
   };
 
@@ -52,6 +71,8 @@ export default class Table extends Component {
             </button>
           </div>
         </div>
+        <h5>Click name to sort alphabetically </h5>
+
         <table className="table table-dark">
           <thead>
             <tr>
