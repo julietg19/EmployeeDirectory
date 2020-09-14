@@ -71,7 +71,7 @@ export default class Table extends Component {
             </button>
           </div>
         </div>
-        <h5>Click name to sort alphabetically </h5>
+        <h5>Click Name to sort alphabetically </h5>
 
         <table className="table table-dark">
           <thead>
