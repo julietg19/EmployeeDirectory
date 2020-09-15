@@ -71,14 +71,16 @@ export default class Table extends Component {
             </button>
           </div>
         </div>
-        <h5>Click Name to sort alphabetically </h5>
+        <h5>
+          Click <text className="text-info">Name</text> to sort alphabetically{" "}
+        </h5>
 
         <table className="table table-dark">
           <thead>
             <tr>
               <th scope="col">Avatar</th>
               <th scope="col" onClick={this.sortName}>
-                Name
+                <text className="text-info">Name</text>
               </th>
               <th scope="col">Email</th>
               <th scope="col">Phone</th>
