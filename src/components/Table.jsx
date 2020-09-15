@@ -72,7 +72,11 @@ export default class Table extends Component {
           </div>
         </div>
         <h5>
-          Click <text className="text-info">Name</text> to sort alphabetically{" "}
+          Click{" "}
+          <text onClick={this.sortName} className="text-info">
+            Name
+          </text>{" "}
+          to sort alphabetically{" "}
         </h5>
 
         <table className="table table-dark">
